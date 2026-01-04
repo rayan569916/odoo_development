@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_research_proposal,access_research_proposal,model_research_proposal,base.group_user,1,1,1,1
+access_research_award,access_research_award,model_research_award,base.group_user,1,1,1,1
+access_research_project,access_research_project,model_research_project,base.group_user,1,1,1,1
+access_ethics_review,access_ethics_review,model_research_ethics_review,base.group_user,1,1,1,1

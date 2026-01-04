@@ -1,0 +1,166 @@
+/* research_admin dashboard styles */
+
+/* Container */
+.o_research_dashboard {
+  padding: 24px;
+  background: #f7f8fb;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+/* Header */
+.o_research_dashboard > h1 {
+  margin: 0 0 18px 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Top cards row */
+.o_research_cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 22px;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 1%;
+}
+
+/* Individual card */
+.o_research_card {
+  flex: 1 1 220px;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 16px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(20, 30, 50, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Card number and label */
+.o_research_card_number {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.o_research_card_label {
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+/* Card color variants */
+.o_research_card.blue    { background: linear-gradient(180deg,#66a6ff,#5b9be6); }
+.o_research_card.green   { background: linear-gradient(180deg,#6fd29b,#4bb582); }
+.o_research_card.purple  { background: linear-gradient(180deg,#8e7bda,#7b66cc); }
+.o_research_card.red     { background: linear-gradient(180deg,#f18383,#e05b5b); }
+
+/* Charts area */
+.o_research_charts {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 22px;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.o_research_chart {
+  flex: 1 1 420px;
+  min-width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(20, 30, 50, 0.04);
+  box-sizing: border-box;
+  /* margin: 5%; */
+}
+
+/* Chart title */
+.o_research_chart > h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #222;
+  font-weight: 600;
+}
+
+/* Ensure canvas scales */
+.o_research_chart canvas {
+  width: 100% !important;
+  height: 260px !important; /* adjust this if you want taller/shorter charts */
+  display: block;
+}
+
+/* Upcoming projects table container */
+.o_research_upcoming {
+  margin-top: 6px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(20, 30, 50, 0.04);
+}
+
+/* Table styles - use Odoo base table styles but enhance spacing */
+.o_research_upcoming .table {
+  margin-bottom: 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.o_research_upcoming .table thead th {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eef1f6;
+  font-weight: 600;
+  color: #333;
+}
+
+.o_research_upcoming .table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f2f4f7;
+  vertical-align: middle;
+  color: #333;
+}
+
+/* Last row bottom border removal */
+.o_research_upcoming .table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Small helper for PI column if name missing */
+.o_research_upcoming .no-pi {
+  color: #8a8f97;
+  font-style: italic;
+}
+
+/* Responsive rules */
+@media (max-width: 980px) {
+  .o_research_charts {
+    flex-direction: column;
+  }
+  .o_research_cards {
+    gap: 12px;
+  }
+  .o_research_card {
+    min-width: 0;
+  }
+  .o_research_chart canvas {
+    height: 220px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .o_research_card_number { font-size: 28px; }
+  .o_research_card_label { font-size: 13px; }
+  .o_research_chart canvas { height: 200px !important; }
+  .o_research_upcoming .table thead th,
+  .o_research_upcoming .table tbody td {
+    padding: 8px 8px;
+    font-size: 13px;
+  }
+}

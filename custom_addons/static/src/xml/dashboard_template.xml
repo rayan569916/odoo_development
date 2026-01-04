@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id='MainDashboard' xml:space="preserve">
+    <t t-name='fibi.DashboardTemplate'>
+        <div class="o_research_dashboard">
+            <div class="d-flex justify-content-between">
+                <h1>Dashboard</h1>
+                <div>
+                    <button t-on-click="createAward"
+                    class="btn btn-primary">New Award</button>
+                </div>
+            </div>
+            <!-- cards -->
+            <div class="o_research_cards">
+                <div class="o_research_card blue">
+                    <div class="o_research_card_number" id="card_proposals">
+                        <t t-esc="state.cardData?.proposal_count ?? 0"/>
+                    </div>
+                    <div class="o_research_card_label">Proposals</div>
+                </div>
+                <div class="o_research_card red">
+                    <div class="o_research_card_number" id="card_approved_awards">
+                        <t t-esc="state.cardData?.approved_awards ?? 0"/>
+                    </div>
+                    <div class="o_research_card_label">Approved Awards</div>
+                </div>
+                <div class="o_research_card purple">
+                    <div class="o_research_card_number" id="card_ongoing_projects">
+                        <t t-esc="state.cardData?.ongoing_award ?? 0"/>
+                    </div>
+                    <div class="o_research_card_label">Ongoing Projects</div>
+                </div>
+                <div class="o_research_card green">
+                    <div class="o_research_card_number" id="card_pending_reviews">
+                        <t t-esc="state.cardData?.pending_award ?? 0"/>
+                    </div>
+                    <div class="o_research_card_label">Pending Reviews</div>
+                </div>
+            </div>
+
+            <!-- charts -->
+            <div class="o_research_charts">
+                <div class="o_research_chart">
+                    <h3>Proposals by Status bar view</h3>
+                    <canvas id="proposal_status_chart"/>
+                </div>
+                <div class="o_research_chart">
+                    <h3>Proposals by Status doughnut view</h3>
+                    <canvas id="award_dept_chart"/>
+                </div>
+            </div>
+
+            <!-- table -->
+            <div class="o_research_upcoming">
+                <h3>Upcoming Projects</h3>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th>P.I.</th>
+                            <th>Start Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="upcoming_projects_body">
+                        <t t-if="!state.upcomingProjects.length">
+                            <tr><td colspan="3" class="text-center">No upcoming projects</td></tr>
+                        </t>
+                        <t t-foreach="state.upcomingProjects" t-as="p" t-key="p.id">
+                            <tr>
+                                <td><t t-esc="p.name"/></td>
+                                <td><t t-esc="p.pi"/></td>
+                                <td><t t-esc="p.start_date"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </t>
+
+</templates>
