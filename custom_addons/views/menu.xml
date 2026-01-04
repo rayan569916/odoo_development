@@ -1,0 +1,46 @@
+<odoo>
+    <menuitem id="menu_research_root" name="Research Administration" sequence="10"/>
+
+
+    <record id="action_research_dashboard" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">fibi.dashboard_action</field>
+    </record>
+
+    <menuitem id="menu_research_dashboard"
+        name="Dashboard"
+        parent="menu_research_root"
+        action="action_research_dashboard"/>
+
+    <record id="action_proposal_dashboard" model='ir.actions.client'>
+        <field name="name">Proposals</field>
+        <field name="tag">fibi.proposal_action</field>
+    </record>
+
+    <menuitem id="menu_research_proposals"
+        name="Proposals"
+        parent="menu_research_root"
+        action="action_proposal_dashboard"/>
+
+    <record id="action_research_awards" model='ir.actions.client'>
+        <field name="name">Awards</field>
+        <field name="tag">fibi.award_action</field>
+    </record>
+
+    <menuitem id="menu_research_awards"
+              name="Awards"
+              parent="menu_research_root"
+              action="action_research_awards"/>
+
+    <!-- <menuitem id="menu_research_projects"
+              name="Projects"
+              parent="menu_research_root"
+              action="action_research_projects"/> 
+
+
+    <menuitem id="menu_research_ethics"
+              name="Ethics Reviews"
+              parent="menu_research_root"
+              action="action_research_ethics"/>  -->
+
+</odoo>

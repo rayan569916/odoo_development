@@ -1,0 +1,25 @@
+USER clicks menu "Dashboard"
+           │
+           ▼
+Odoo finds <menuitem> → loads action
+           │
+           ▼
+<action type="client"> triggers JS action via tag
+           │
+           ▼
+JS class Dashboard is executed
+           │
+           ▼
+Dashboard loads XML template (QWeb)
+           │
+           ▼
+Template may call Python controller to get data
+           │
+           ▼
+Controller returns 'values' into the template
+           │
+           ▼
+Template renders HTML + JS-ready JSON
+           │
+           ▼
+JS draws charts and final UI

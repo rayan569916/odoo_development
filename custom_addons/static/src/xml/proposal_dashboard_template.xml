@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="fibi_templates" xml:space="preserve">
+
+<t t-name="fibi.ProposalDashboardTemplate">
+<div class="o_proposal_dashboard">
+    <div class="d-flex justify-content-between">
+        <h1>Proposal</h1>
+        <div class="m-3">
+            <button type="button" class="btn btn-primary"
+            t-on-click="createProposal">New Proposal</button>
+        </div>
+    </div>
+
+    <div class="o_research_cards">
+
+    <div class="o_research_card blue">
+        <div class="o_research_card_number">
+            <t t-esc="state.proposal_count.total_count or 0"/>
+        </div>
+        <div class="o_research_card_label">Total Proposals</div>
+    </div>
+
+    <div class="o_research_card red">
+        <div class="o_research_card_number">
+            <t t-esc="state.proposal_count.total_draft or 0"/>
+        </div>
+        <div class="o_research_card_label">Draft</div>
+    </div>
+
+    <div class="o_research_card blue">
+        <div class="o_research_card_number">
+            <t t-esc="state.proposal_count.total_submitted or 0"/>                
+        </div>
+        <div class="o_research_card_label">Submitted</div>
+    </div>
+
+    <div class="o_research_card purple">
+        <div class="o_research_card_number">
+            <t t-esc="state.proposal_count.total_under_review or 0"/>
+        </div>
+        <div class="o_research_card_label">Under Review</div>
+    </div>
+
+    <div class="o_research_card green">
+        <div class="o_research_card_number">
+            <t t-esc="state.proposal_count.total_approved or 0"/>
+        </div>
+        <div class="o_research_card_label">Approved</div>
+    </div>
+
+    <div class="o_research_card red">
+        <div class="o_research_card_number">
+            <t t-esc="state.proposal_count.total_declined or 0"/>
+        </div>
+        <div class="o_research_card_label">Declined</div>
+    </div>
+    </div>  
+
+
+<!-- charts -->
+<div class="o_research_charts">
+    <div class="o_research_chart m-3">
+        <h3>Proposals by Status Radar view</h3>
+        <canvas id="proposal_status_chart_pd"/>
+    </div>
+    <div class="o_research_chart m-3">
+        <h3>Proposals by Status Polar Area view</h3>
+        <canvas id="proposal_status_"/>
+    </div>
+</div>
+
+
+    <!-- table -->
+    <div class="m-3">
+    <h3>Upcoming Proposal</h3>
+    <div class="o_research_upcoming">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Proposal</th>
+                    <th>P.I</th>
+                    <th>Department</th>
+                    <th>Status</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Budget Total</th>
+                    <th>Currency Id</th>
+                    <th>Award Id</th>
+                    <th>Is Upcoming</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="state.proposal_detail" t-as="p" t-key="p.id">
+                    <tr>
+                        <td t-esc="p.name"></td>
+                        <td t-esc="p.pi_id"></td>
+                        <td t-esc="p.department"></td>
+                        <td t-esc="p.status"></td>
+                        <td t-esc="p.start_date"></td>
+                        <td t-esc="p.end_date"></td>
+                        <td t-esc="p.budget_total"></td>
+                        <td t-esc="p.currency_id"></td>
+                        <td t-esc="p.award_ids"></td>
+                        <td t-esc="p.is_upcoming"></td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+</t>
+
+</templates>
